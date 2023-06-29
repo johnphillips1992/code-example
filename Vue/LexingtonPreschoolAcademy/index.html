@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Lexington Preschool Academy</title>
+    <!-- Import Styles -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Import Vue.js -->
+    <script src="https://unpkg.com/vue@3.0.11/dist/vue.global.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <nav-bar></nav-bar>
+      <div class="container">
+        <student-table :students="students"></student-table>
+        <button class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#studentModal">Add Student</button>
+        <modal :title="'Add Student'" id="studentModal">
+          <student-create-form :allclasses="classes" @student-submitted="createStudent"></student-create-form>
+        </modal>
+      </div>
+    </div>
+
+    <!-- Import App -->
+    <script src="./main.js"></script>
+
+    <!-- Import Components -->
+    <script src="./components/StudentTable.js"></script>
+    <script src="./components/StudentCreateForm.js"></script>
+    <script src="./components/NavBar.js"></script>
+    <script src="./components/Modal.js"></script>
+    <!-- Mount App -->
+    <script>
+      const mountedApp = app.mount('#app')
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
